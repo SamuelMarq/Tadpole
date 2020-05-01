@@ -4,9 +4,10 @@ using Structures.Nodes;
 
 namespace Structures.Lists
 {
-    class SingleLinkList<T> : ISingleLinkList<T>
+    public class SingleLinkList<T> : ISingleLinkList<T>
     {
-        public ISingleLinkNode<T> FirstNode { get; set; }
+        #region Properties
+        ISingleLinkNode<T> FirstNode { get; set; }
 
         ISingleLinkNode<T> LastNode
         {
@@ -21,7 +22,9 @@ namespace Structures.Lists
                 return current;
             }
         }
+        #endregion
 
+        #region Add
         public void AddFirst(T value)
         {
             var node = new SingleLinkNode<T>(value);
@@ -36,12 +39,45 @@ namespace Structures.Lists
 
         void Add(ISingleLinkNode<T> node, ISingleLinkNode<T> next)
         {
-            if (FirstNode == null) FirstNode = node;
+            if (FirstNode == null)
+            {
+                FirstNode = node;
+                return;
+            }
             node.Next = next;
             if (next == FirstNode) FirstNode = node;
             else if (next == null) LastNode.Next = node;
             
 
         }
+        #endregion
+
+        #region Remove
+
+        public T RemoveFirst()
+        {
+            var val = FirstNode.Content;
+            FirstNode=FirstNode.Next;
+            return val;
+        }
+
+        public T RemoveLast()
+        {
+            var val = LastNode.Content;
+            var current = FirstNode;
+            while (current.Next!=LastNode)
+            {
+                current = current.Next;
+            }
+            current.Next = null;
+            return val;
+        }
+
+
+        //T Remove(ISingleLinkNode<T> node)
+        //{
+            
+        //}
+        #endregion
     }
 }
