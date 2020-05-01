@@ -10,5 +10,10 @@ namespace Structures.Nodes
         public ISingleLinkNode<T> Next { get; set; }
 
         public T Content { get; set; }
+
+        public SingleLinkNode(T value)
+        {
+            Content = value;
+        }
     }
 }

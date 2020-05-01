@@ -6,6 +6,7 @@ namespace Structures.Interfaces.Lists
 {
     public interface ISingleLinkList<T>
     {
-        
+        public void AddFirst(T value);
+        public void AddLast(T value);
     }
 }

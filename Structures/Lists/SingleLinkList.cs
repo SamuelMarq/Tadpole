@@ -1,5 +1,6 @@
 ﻿using Structures.Interfaces.Lists;
 using Structures.Interfaces.Simple;
+using Structures.Nodes;
 
 namespace Structures.Lists
 {
@@ -7,7 +8,7 @@ namespace Structures.Lists
     {
         public ISingleLinkNode<T> FirstNode { get; set; }
 
-        ISingleLinkNode<T> Last
+        ISingleLinkNode<T> LastNode
         {
             get
             {
@@ -21,20 +22,25 @@ namespace Structures.Lists
             }
         }
 
-        void AddFirst(ISingleLinkNode<T> node)
+        public void AddFirst(T value)
         {
-
+            var node = new SingleLinkNode<T>(value);
+            Add(node, FirstNode);
         }
 
-        void AddLast(ISingleLinkNode<T> node)
+        public void AddLast(T value)
         {
-
+            var node = new SingleLinkNode<T>(value);
+            Add(node, null);
         }
 
         void Add(ISingleLinkNode<T> node, ISingleLinkNode<T> next)
         {
             if (FirstNode == null) FirstNode = node;
             node.Next = next;
+            if (next == FirstNode) FirstNode = node;
+            else if (next == null) LastNode.Next = node;
+            
 
         }
     }

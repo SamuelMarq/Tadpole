@@ -7,9 +7,7 @@ namespace App
     {
         static void Main(string[] args)
         {
-            var node = new SingleLinkNode<int>();
-            node.Content = 3;
-
+            var node = new SingleLinkNode<int>(3);
         }
     }
 }
