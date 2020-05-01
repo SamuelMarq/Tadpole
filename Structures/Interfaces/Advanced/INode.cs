@@ -1,5 +1,6 @@
-﻿using System;
-namespace Structures.Interfaces
+﻿//using System;
+
+namespace Structures.Interfaces.Advanced
 {
     public interface INode<T>
     {

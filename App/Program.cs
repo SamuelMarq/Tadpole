@@ -1,4 +1,5 @@
 ﻿using System;
+using Structures.Nodes;
 
 namespace App
 {
@@ -6,6 +7,8 @@ namespace App
     {
         static void Main(string[] args)
         {
+            var node = new SingleLinkNode<int>();
+            node.Content = 3;
 
         }
     }
